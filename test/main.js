@@ -20,7 +20,7 @@ describe('open bmwUSA.com', async function() {
 
       var car =await driver.wait(until.elementLocated(By.xpath("//div[normalize-space()='$43,450']"))).getText();
 
-      console.log(`zalupa = ${car}`)
+
       
       let expected = 43450;
       
