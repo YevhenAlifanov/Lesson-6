@@ -25,9 +25,9 @@ describe('open bmwUSA.com', async function() {
       let expected = 43450;
       
       let actual = car.replace(/[\s.,$]/g, '');
-      let zalupa = parseFloat(actual)
-      console.log(typeof zalupa);
-      assert.strictEqual(expected, zalupa);
+      let truePrice = parseFloat(actual)
+      // console.log(typeof zalupa);
+      assert.strictEqual(expected, truePrice);
 
     
     await driver.quit();
@@ -38,11 +38,3 @@ describe('open bmwUSA.com', async function() {
 });
 
 
-
-
-
-    // await driver.findElement(By.xpath("(//a[contains(@aria-label,'Start Designing')])[1]")).click()
-
-    // await browser.manage().timeouts().implicitlyWait(2000);
-
-    // await driver.executeScript("window.scrollBy(0,500)", "");
