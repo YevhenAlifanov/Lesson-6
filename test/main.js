@@ -20,13 +20,12 @@ describe('open bmwUSA.com', async function() {
 
       var car =await driver.wait(until.elementLocated(By.xpath("//div[normalize-space()='$43,450']"))).getText();
 
-
       
       let expected = 43450;
       
       let actual = car.replace(/[\s.,$]/g, '');
       let truePrice = parseFloat(actual)
-      // console.log(typeof zalupa);
+
       assert.strictEqual(expected, truePrice);
 
     
