@@ -14,11 +14,12 @@ describe('open bmwUSA.com', async function() {
     await driver.get('https://www.bmwusa.com');
     
 
-    await driver.executeScript("window.scrollBy(0,3000)", "");
+    await driver.executeScript("window.scrollTo(0,3000)", "");
 
-    await driver.findElement(By.css('div[class="gkl-text-dark  cta-theme-holder"] a[href="/build-your-own.html#/series/3/sedan"]')).click()
 
-      var car =await driver.wait(until.elementLocated(By.xpath("//div[normalize-space()='$43,450']"))).getText();
+    await driver.findElement(By.xpath('//a[@href="/build-your-own.html#/series/3/sedan"]')).click()
+
+      var car =await driver.wait(until.elementLocated(By.xpath("(//*[@class ='variant-pricing'])[2]//div[2]"))).getText();
 
       
       let expected = 43450;
@@ -35,5 +36,8 @@ describe('open bmwUSA.com', async function() {
   });
 
 });
+
+
+
 
 
