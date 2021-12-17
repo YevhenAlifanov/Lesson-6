@@ -13,9 +13,9 @@ describe('open bmwUSA.com', async function() {
   
     await driver.get('https://www.bmwusa.com');
     
-
-    await driver.executeScript("window.scrollTo(0,3000)", "");
-
+    // await driver.executeScript("window.scrollTo(0,3000)", "");
+    let element = await driver.findElement(By.xpath('//a[@href="/build-your-own.html#/series/3/sedan"]'));
+    await driver.executeScript("arguments[0].scrollIntoView(true);", element);
 
     await driver.findElement(By.xpath('//a[@href="/build-your-own.html#/series/3/sedan"]')).click()
 
@@ -23,8 +23,8 @@ describe('open bmwUSA.com', async function() {
 
       
       let expected = 43450;
-      
-      let actual = car.replace(/[\s.,$]/g, '');
+
+      let actual = car.replace("$", "").replace(",", "");
       let truePrice = parseFloat(actual)
 
       assert.strictEqual(expected, truePrice);
@@ -36,7 +36,6 @@ describe('open bmwUSA.com', async function() {
   });
 
 });
-
 
 
 
